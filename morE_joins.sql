@@ -54,7 +54,7 @@ on actorid=id) JOIN movie ON movieid = movie.id
 where ord=1 group by name having count(*) >= 15
 
 14.
-SELECT title, COUNT(actorid) FROM (movie JOIN casting ON movieid = movie.id) JOIN actor ON actor.id = actorid WHERE yr = 1978 GROUP BY title ORDER BY COUNT(actorid) DESC, title;
+SELECT title, COUNT(actorid) FROM (movie JOIN casting ON movieid = movie.id)  WHERE yr = 1978 GROUP BY title ORDER BY COUNT(actorid) DESC, title;
 
 15.
 SELECT name FROM (actor JOIN casting ON actorid = actor.id) JOIN movie ON movieid = movie.id 
