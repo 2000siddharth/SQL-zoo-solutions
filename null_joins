@@ -1,0 +1,48 @@
+1.
+select name from teacher where dept is NULL
+
+2.
+SELECT teacher.name, dept.name
+ FROM teacher INNER JOIN dept
+           ON (teacher.dept=dept.id)
+3.
+SELECT teacher.name, dept.name
+ FROM teacher FULL OUTER JOIN dept
+           ON (teacher.dept=dept.id)
+where teacher.name is not null
+
+4.
+SELECT teacher.name, dept.name
+ FROM teacher FULL OUTER JOIN dept
+           ON (teacher.dept=dept.id)
+where dept.name is not null
+
+5.
+select name, COALESCE(mobile, '07986 444 2266') from teacher
+
+6.
+select teacher.name, COALESCE(dept.name, 'None') from teacher
+left join dept on teacher.dept = dept.id
+
+7.
+select count(name) as count1, count(mobile) as count2 from teacher
+
+8.
+SELECT dept.name, COUNT(teacher.name) FROM teacher RIGHT JOIN dept ON dept.id = teacher.dept GROUP BY dept.name;
+
+9.
+select name ,
+CASE
+when dept in (1,2) then 'Sci'
+else 'Art'
+END AS deptname
+from teacher
+
+10.
+select name,
+CASE
+when dept in (1,2) then 'Sci'
+when dept = 3 then 'Art'
+else 'None'
+END AS deptname
+from teacher
